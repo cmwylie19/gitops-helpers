@@ -1,12 +1,13 @@
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.6
 
+# Repo https://github.com/cmwylie19/gitops-helpers
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
-RUN microdnf install bash dnf wget tar\
+RUN microdnf install bash dnf gzip wget tar\
     && microdnf update \
     && microdnf clean all 
 
-ARG OCP_VERSION=4.9.10
+ARG OCP_VERSION=4.10.45
 ARG USERNAME=readfile
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
